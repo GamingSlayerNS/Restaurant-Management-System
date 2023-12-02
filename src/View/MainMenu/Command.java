@@ -1,4 +1,4 @@
-package Controllers.MainMenu;
+package View.MainMenu;
 
 public interface Command {
     public abstract void execute();

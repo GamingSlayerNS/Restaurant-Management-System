@@ -1,21 +1,21 @@
-package Controllers.MainMenu;
+package View.MainMenu;
 
 /**
  * MenuItem
  */
-public class MenuItem {
+public class DeviceAction {
     private char selectChar;
     private String description;
     static quitCommand dummyCommand;
     Command theCommand;
     
-    public MenuItem() {
+    public DeviceAction() {
         this.selectChar = 'q';
         this.description = "Quit";
         theCommand = dummyCommand;
     }
 
-    public MenuItem(char selectChar, String description, Command cmd) {
+    public DeviceAction(char selectChar, String description, Command cmd) {
         this.selectChar = selectChar;
         this.description = description;
         theCommand = cmd;

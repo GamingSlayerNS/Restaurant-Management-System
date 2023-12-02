@@ -1,18 +1,26 @@
-import Controllers.MainMenu.HandheldMenu;
-import Controllers.MainMenu.MenuItem;
-import Controllers.MainMenu.SelectTableCommand;
+import Components.Floor.FloorMap;
+import View.HandheldDevice;
+import View.MainMenu.DeviceAction;
+import View.MainMenu.SelectTableCommand;
 
 public class RMS {
     public static void main(String[] args) {
         System.out.println("Starting: Restaurant Management System... \n");
-        HandheldMenu handheldMenu = new HandheldMenu();
+        HandheldDevice handheld = new HandheldDevice();
 
-        SelectTableCommand selectTable = new SelectTableCommand();
+        SelectTableCommand selectTableCommand = new SelectTableCommand();
 
-        MenuItem selectTableMenu = new MenuItem('s', "Select a Table", selectTable);
+        DeviceAction selectTable = new DeviceAction('s', "Select a Table", selectTableCommand);
 
-        handheldMenu.add(selectTableMenu);
+        handheld.addAction(selectTable);
 
-        handheldMenu.start();
+        handheld.start();
+
+        // FloorMap fm = new FloorMap(25);
+        // fm.renderTables();
+        // for (int i = 0; i < 25; i++) {
+        //     // System.out.println(fm.getTable(i).id + fm.getTable(i).status);
+        //     fm.getTable(i).renderTable();
+        // }
     }
 }

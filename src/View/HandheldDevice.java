@@ -1,34 +1,36 @@
-package Controllers.MainMenu;
+package View;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class HandheldMenu {
+import View.MainMenu.DeviceAction;
+
+public class HandheldDevice {
     char QUIT = 'q';
     String QUIT_TEXT = "Shutdown...";
-    String TITLE_TEXT = "Handheld Device Menu: ";
+    String TITLE_TEXT = "Handheld Device: ";
     Scanner scn = new Scanner(System.in);
-    Vector<MenuItem> itemList;
-    String menuText;
+    Vector<DeviceAction> actionList;
+    String actionText;
 
-    public HandheldMenu() {
-        this.itemList = new Vector<MenuItem>(0);
-        this.menuText = TITLE_TEXT;
+    public HandheldDevice() {
+        this.actionList = new Vector<DeviceAction>(0);
+        this.actionText = TITLE_TEXT;
     }
 
-    public HandheldMenu(String menuText) {
-        this.itemList = new Vector<MenuItem>(0);
-        this.menuText = menuText;
+    public HandheldDevice(String actionText) {
+        this.actionList = new Vector<DeviceAction>(0);
+        this.actionText = actionText;
     }
 
-    public void add(MenuItem item) {
-        itemList.add(item);
+    public void addAction(DeviceAction action) {
+        actionList.add(action);
     }
 
     public void displayMenu() {
-        System.out.println(menuText);
-        for (MenuItem menuItem : itemList) {
-            System.out.print(menuItem.getSelectChar() + ": ");
-            System.out.println(menuItem.getDescription());
+        System.out.println(actionText);
+        for (DeviceAction action : actionList) {
+            System.out.print(action.getSelectChar() + ": ");
+            System.out.println(action.getDescription());
         }
         System.out.println(QUIT + ": " + QUIT_TEXT);
     }
@@ -56,10 +58,10 @@ public class HandheldMenu {
             selectChar = getSelection();
             if (selectChar != QUIT) {
                 boolean valid = false;
-                for (MenuItem menuItem : itemList) {
-                    if (selectChar == menuItem.getSelectChar()) {
+                for (DeviceAction action : actionList) {
+                    if (selectChar == action.getSelectChar()) {
                         valid = true;
-                        menuItem.execute();
+                        action.execute();
                         break;
                     }
                 }
@@ -67,9 +69,11 @@ public class HandheldMenu {
                 if (valid) {
                     System.out.println("");
                 } else {
-                    System.out.println("The menu item " + selectChar + " was invalid" + "\n");
+                    System.out.println("The action " + selectChar + " was invalid" + "\n");
                 }
             }
         } while (selectChar != QUIT);
+
+        System.out.println("Shutting Down... Goodbye");
     }
 }
