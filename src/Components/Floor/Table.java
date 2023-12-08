@@ -8,7 +8,7 @@ public class Table {
     public int id;
     public String status;
     private String waitress;
-    private Tab tab;
+    public Tab tab;
 
     public Table(int id) {
         String[] status = {"Empty", "Full", "Dirty"};

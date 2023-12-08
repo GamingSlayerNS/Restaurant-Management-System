@@ -13,7 +13,6 @@ public class ConfirmCheckoutCommand implements Command {
     }
 
     public void confirmCheckout() {
-        System.out.println("Order Receipt: \n");
         handheldController.confirmCheckout();
     };
 

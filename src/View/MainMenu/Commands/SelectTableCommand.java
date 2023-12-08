@@ -15,7 +15,7 @@ public class SelectTableCommand implements Command {
 
     public SelectTableCommand(HandheldDevice handheld) {
         this.handheld = handheld;
-        this.tableMenu = new HandheldDevice("Table Menu: ", "<-- return", "Returning to Main menu...", 2, 0);
+        this.tableMenu = new HandheldDevice("Table Menu: ", "<-- Return to Previous Menu", "Returning to Main menu...", 2, 0);
         this.startup = true;
     }
 
@@ -23,7 +23,6 @@ public class SelectTableCommand implements Command {
         System.out.print("Choose Table: ");
         String text = scn.next();
         System.out.println("");
-
         handheld.handheldController.currTable = handheld.handheldController.floorMap.getTable(Integer.parseInt(text));
 
         if (startup) {

@@ -10,15 +10,30 @@ public class CheckoutController {
     }
 
     public void selectCheckout() {
-        currOrder.calculateTotal();
-        currOrder.getOrderDetails();
+        if (currOrder != null) {
+            System.out.println("Order Summary: \n");
+            currOrder.calculateTotal();
+            currOrder.getOrderDetails();
+        } else {
+            System.out.println("No order has been placed for this table.");
+        }
     }
 
     public void verifyPayment(int cardNum) {
-        currOrder.addPaymentInfo(cardNum);
+        if (currOrder != null) {
+            currOrder.addPaymentInfo(cardNum);
+            System.out.println("Payment information added!");
+        } else {
+            System.out.println("No order has been placed for this table. Transaction terminated.");
+        }
     }
 
     public void confirmCheckout() {
-        currOrder.getOrderDetails();
+        if (currOrder != null) {
+            System.out.println("Order Receipt: \n");
+            currOrder.getOrderDetails();
+        } else {
+            System.out.println("No order has been placed for this table.");
+        }
     }
 }

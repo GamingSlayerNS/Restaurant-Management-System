@@ -11,7 +11,6 @@ public class PlaceOrderCommand implements Command {
     }
 
     public void placeOrder() {
-        System.out.println("Order sent to Kitchen!");
         handheldController.placeOrder();
     };
 

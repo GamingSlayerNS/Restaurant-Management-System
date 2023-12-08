@@ -2,6 +2,7 @@ package Controllers;
 
 import Components.Floor.FloorMap;
 import Components.Floor.Order;
+import Components.Floor.Tab;
 import Components.Floor.Table;
 import Components.Kitchen.Menu;
 import Components.Kitchen.MenuItem;
@@ -13,9 +14,10 @@ public class HandheldController {
     public Table currTable;
     CheckoutController checkoutController;
 
-    public HandheldController(int id, int floorSize) {
+    public HandheldController(int id, FloorMap floorMap) {
         this.id = id;
-        floorMap = new FloorMap(floorSize);
+        // floorMap = new FloorMap(floorSize);
+        this.floorMap = floorMap;
         this.menu = new Menu();
         this.currTable = null;
         this.checkoutController = new CheckoutController();
@@ -46,9 +48,14 @@ public class HandheldController {
     }
 
     public void placeOrder() {
-        Order currOrder = new Order(currTable.getTab().getItems());
-        // Send to kitchen
-        checkoutController.setOrder(currOrder);
+        if (!currTable.getTab().getItems().isEmpty()) {
+            Order currOrder = new Order(currTable.getTab().getItems());
+            // Send to kitchen
+            System.out.println("Order sent to Kitchen!");
+            checkoutController.setOrder(currOrder);
+        } else {
+            System.out.println("No items have been added. Please add items before placing an order.");
+        }
     }
 
     public void selectCheckout() {
@@ -61,5 +68,6 @@ public class HandheldController {
 
     public void confirmCheckout() {
         checkoutController.confirmCheckout();
+        currTable.tab = new Tab();
     }
 }

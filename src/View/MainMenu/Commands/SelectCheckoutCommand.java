@@ -13,7 +13,6 @@ public class SelectCheckoutCommand implements Command {
     }
 
     public void selectCheckout() {
-        System.out.println("Order Summary: \n");
         handheldController.selectCheckout();
     };
 

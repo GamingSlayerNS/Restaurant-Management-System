@@ -18,13 +18,25 @@ public class Order {
     }
 
     public void getOrderDetails() {
-        System.out.printf("OrderID: %15d%n", orderID);
-        System.out.printf("Name: %15s%n", customerName);
-        System.out.printf("Card number: %15d%n", cardNum);
-        for (MenuItem item : items) {
-            System.out.printf("%-25s %.2f\t%s%n", item.name, item.price, item.category);
+        System.out.println("OrderID:\t" + orderID);
+        System.out.println("Name:\t\t" + customerName);
+        if (cardNum != 0) {
+            System.out.println("Card number:\t" + cardNum);
+        } else {
+            System.out.println("Card number:\tN/A");
+        } 
+        if (items.size() > 0) {
+            System.out.println("\nItems:");
+            int longest = 0;
+            for (MenuItem item: items) {
+                if (item.name.length() > longest)
+                    longest = item.name.length();
+            }
+            for (MenuItem item : items) {
+                System.out.print(String.format("\t%-" + longest + "s\t%.2f\t%s%n", item.name, item.price, item.category));
+            }
         }
-        System.out.printf("Total: %.2f%n", total);
+        System.out.printf("\nTotal:\t\t%.2f%n", total);
     }
 
     public void calculateTotal() {

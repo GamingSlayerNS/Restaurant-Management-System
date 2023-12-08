@@ -2,6 +2,8 @@ package View;
 import java.util.Scanner;
 import java.util.Vector;
 
+import Components.Floor.FloorMap;
+
 import Controllers.HandheldController;
 import View.MainMenu.DeviceAction;
 
@@ -16,6 +18,8 @@ public class HandheldDevice {
     String quitText;
     String exitMsg;
 
+    FloorMap floorMap;
+
     public HandheldController handheldController;
 
     public HandheldDevice(int id, int floorSize) {
@@ -23,7 +27,9 @@ public class HandheldDevice {
         this.actionText = TITLE_TEXT + " " + id + ": ";
         this.quitText = QUIT_TEXT;
         this.exitMsg = EXIT_TEXT;
-        this.handheldController = new HandheldController(id, floorSize);
+        this.floorMap = new FloorMap(floorSize);
+        this.handheldController = new HandheldController(id, this.floorMap);
+        // this.handheldController = new HandheldController(id, floorSize);
     }
 
     public HandheldDevice(String title, String quitText, String exitMsg, int id, int floorSize) {
@@ -31,7 +37,9 @@ public class HandheldDevice {
         this.actionText = title;
         this.quitText = quitText;
         this.exitMsg = exitMsg;
-        this.handheldController = new HandheldController(id, floorSize);
+        this.floorMap = new FloorMap(floorSize);
+        this.handheldController = new HandheldController(id, this.floorMap);
+        // this.handheldController = new HandheldController(id, floorSize);
     }
 
     public void addAction(DeviceAction action) {
@@ -40,6 +48,8 @@ public class HandheldDevice {
 
     public void displayMenu() {
         System.out.println(actionText);
+        floorMap.renderFloor();
+        System.out.println("");
         for (DeviceAction action : actionList) {
             System.out.print(action.getSelectChar() + ": ");
             System.out.println(action.getDescription());
@@ -60,6 +70,14 @@ public class HandheldDevice {
         }
         
         return returnValue;
+    }
+
+    public void viewFloor() {
+        floorMap.renderFloor();
+    }
+
+    public String getTableStatus(int id) {
+        return floorMap.getTable(id).status;
     }
 
     public void start() {

@@ -7,11 +7,6 @@ public class RMS {
         System.out.println("Starting: Restaurant Management System... \n");
         HandheldDevice handheld = new HandheldDevice(1, 25);
 
-        /* View Floor Command */
-        ViewFloorCommand viewFloorCommand = new ViewFloorCommand(handheld.handheldController);
-        DeviceAction viewFloor = new DeviceAction('v', "View Tempest FloorMap", viewFloorCommand);
-        handheld.addAction(viewFloor);
-
         /* Select Table Command */
         SelectTableCommand selectTableCommand = new SelectTableCommand(handheld);
         DeviceAction selectTable = new DeviceAction('t', "Select a Table", selectTableCommand);
