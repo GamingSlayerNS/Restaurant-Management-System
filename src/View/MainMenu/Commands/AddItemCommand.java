@@ -13,12 +13,12 @@ public class AddItemCommand implements Command {
         this.handheldController = handheldController;
     }
 
-    public void selectTable() {
-        System.out.print("Choose Table: ");
+    public void addItem() {
+        System.out.print("Choose Item: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.selecTable(Integer.parseInt(text));
+        handheldController.addItem(null);
     };
 
-    public void execute() {selectTable();};
+    public void execute() {addItem();};
 }

@@ -13,12 +13,12 @@ public class ConfirmCheckoutCommand implements Command {
         this.handheldController = handheldController;
     }
 
-    public void selectTable() {
+    public void confirmCheckout() {
         System.out.print("Choose Table: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.selecTable(Integer.parseInt(text));
+        handheldController.confirmCheckout();
     };
 
-    public void execute() {selectTable();};
+    public void execute() {confirmCheckout();};
 }

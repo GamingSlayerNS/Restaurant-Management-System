@@ -15,7 +15,7 @@ public class HandheldController {
 
     public void viewFloor() {}
 
-    public void selecTable(int id) {
+    public void selectTable(int id) {
         System.out.println("Table: " + id);
     }
 

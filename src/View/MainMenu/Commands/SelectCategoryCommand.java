@@ -13,12 +13,12 @@ public class SelectCategoryCommand implements Command {
         this.handheldController = handheldController;
     }
 
-    public void selectTable() {
-        System.out.print("Choose Table: ");
+    public void selectCategory() {
+        System.out.print("Choose Menu Category: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.selecTable(Integer.parseInt(text));
+        handheldController.selectCategory(text);
     };
 
-    public void execute() {selectTable();};
+    public void execute() {selectCategory();};
 }

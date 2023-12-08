@@ -17,7 +17,7 @@ public class SelectTableCommand implements Command {
         System.out.print("Choose Table: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.selecTable(Integer.parseInt(text));
+        handheldController.selectTable(Integer.parseInt(text));
     };
 
     public void execute() {selectTable();};
