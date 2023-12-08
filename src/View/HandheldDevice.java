@@ -2,6 +2,7 @@ package View;
 import java.util.Scanner;
 import java.util.Vector;
 
+import Controllers.HandheldController;
 import View.MainMenu.DeviceAction;
 
 public class HandheldDevice {
@@ -12,14 +13,18 @@ public class HandheldDevice {
     Vector<DeviceAction> actionList;
     String actionText;
 
-    public HandheldDevice() {
+    public HandheldController handheldController;
+
+    public HandheldDevice(int id, int floorSize) {
         this.actionList = new Vector<DeviceAction>(0);
         this.actionText = TITLE_TEXT;
+        this.handheldController = new HandheldController(id, floorSize);
     }
 
-    public HandheldDevice(String actionText) {
+    public HandheldDevice(String actionText, int id, int floorSize) {
         this.actionList = new Vector<DeviceAction>(0);
         this.actionText = actionText;
+        this.handheldController = new HandheldController(id, floorSize);
     }
 
     public void addAction(DeviceAction action) {
