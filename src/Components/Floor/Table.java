@@ -1,5 +1,7 @@
 package Components.Floor;
 
+import java.util.Random;
+
 import Components.Kitchen.MenuItem;
 
 public class Table {
@@ -9,10 +11,12 @@ public class Table {
     private Tab tab;
 
     public Table(int id) {
+        String[] status = {"Empty", "Full", "Dirty"};
+        Random random = new Random();
         this.id = id;
-        this.status = "Empty";
+        this.status = status[random.nextInt(status.length)];
         this.tab = new Tab();
-        this.waitress = "";
+        this.waitress = "Kaguya";
     }
     
     public String getWaitress() {

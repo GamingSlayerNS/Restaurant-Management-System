@@ -13,7 +13,7 @@ public class ViewMenuCommand implements Command {
     }
 
     public void viewMenu() {
-        System.out.println("Menu: ");
+        System.out.println("Menu Categories: ");
         handheldController.viewMenu();
     };
 

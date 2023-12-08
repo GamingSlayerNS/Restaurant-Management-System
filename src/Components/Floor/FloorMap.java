@@ -13,13 +13,13 @@ public class FloorMap {
     }
 
     public Table getTable(int id) {
-        return tables[id];
+        return tables[id - 1];
     }
 
-    public void renderTables() {
+    public void renderFloor() {
         for (Table table : tables) {
             System.out.println(
-                table.id + ": " + table.status + " | " + table.getWaitress()
+                table.id + ":\t" + table.status + "\t|   " + table.getWaitress()
             );
         }
     }
