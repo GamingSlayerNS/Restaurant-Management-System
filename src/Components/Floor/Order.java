@@ -8,8 +8,8 @@ public class Order {
     int orderID;
     ArrayList<MenuItem> items;
     String customerName;
-    int cardNum;
-    double total;
+    public int cardNum;
+    public double total;
 
     public Order(ArrayList<MenuItem> items) {
         this.orderID = ((int) (Math.random() * 1000) + 10000);

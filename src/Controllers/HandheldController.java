@@ -4,6 +4,7 @@ import Components.Floor.FloorMap;
 import Components.Floor.Order;
 import Components.Floor.Tab;
 import Components.Floor.Table;
+import Components.Kitchen.Inventory;
 import Components.Kitchen.Menu;
 import Components.Kitchen.MenuItem;
 
@@ -13,6 +14,7 @@ public class HandheldController {
     public Menu menu;
     public Table currTable;
     CheckoutController checkoutController;
+    Inventory inventory = new Inventory();
 
     public HandheldController(int id, FloorMap floorMap) {
         this.id = id;
@@ -40,10 +42,12 @@ public class HandheldController {
     }
 
     public void addItem(MenuItem item) {
-        currTable.orderItem(item);
-        System.out.println("Table " + currTable.id + " Tab: ");
-        for (MenuItem item2 : currTable.getTab().getItems()) {
-            System.out.println(item2.name);
+            if (inventory.checkStock()) {
+                currTable.orderItem(item);
+            System.out.println("Table " + currTable.id + " Tab: ");
+            for (MenuItem item2 : currTable.getTab().getItems()) {
+                System.out.println(item2.name);
+            }
         }
     }
 
@@ -52,7 +56,7 @@ public class HandheldController {
             Order currOrder = new Order(currTable.getTab().getItems());
             // Send to kitchen
             System.out.println("Order sent to Kitchen!");
-            checkoutController.setOrder(currOrder);
+            checkoutController.setOrder(currOrder, inventory);
         } else {
             System.out.println("No items have been added. Please add items before placing an order.");
         }
@@ -67,7 +71,9 @@ public class HandheldController {
     }
 
     public void confirmCheckout() {
-        checkoutController.confirmCheckout();
-        currTable.tab = new Tab();
+        if (checkoutController.confirmCheckout()) {
+            currTable.tab = new Tab();   
+            checkoutController.currOrder = null;
+        }
     }
 }
