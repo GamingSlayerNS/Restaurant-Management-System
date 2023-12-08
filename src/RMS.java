@@ -1,6 +1,6 @@
 import View.HandheldDevice;
 import View.MainMenu.DeviceAction;
-import View.MainMenu.SelectTableCommand;
+import View.MainMenu.Commands.SelectTableCommand;
 
 public class RMS {
     public static void main(String[] args) {

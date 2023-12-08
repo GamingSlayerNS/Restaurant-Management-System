@@ -1,14 +1,15 @@
-package View.MainMenu;
+package View.MainMenu.Commands;
 
 import java.util.Scanner;
 
 import Controllers.HandheldController;
+import View.MainMenu.Command;
 
-public class SelectTableCommand implements Command {
+public class ViewFloorCommand implements Command {
     Scanner scn = new Scanner(System.in);
     HandheldController handheldController;
 
-    public SelectTableCommand(HandheldController handheldController) {
+    public ViewFloorCommand(HandheldController handheldController) {
         this.handheldController = handheldController;
     }
 

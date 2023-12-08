@@ -8,7 +8,7 @@ import View.MainMenu.DeviceAction;
 public class HandheldDevice {
     char QUIT = 'q';
     String QUIT_TEXT = "Shutdown...";
-    String TITLE_TEXT = "Handheld Device: ";
+    String TITLE_TEXT = "Handheld Device";
     Scanner scn = new Scanner(System.in);
     Vector<DeviceAction> actionList;
     String actionText;
@@ -17,7 +17,7 @@ public class HandheldDevice {
 
     public HandheldDevice(int id, int floorSize) {
         this.actionList = new Vector<DeviceAction>(0);
-        this.actionText = TITLE_TEXT;
+        this.actionText = TITLE_TEXT + " " + id + ": ";
         this.handheldController = new HandheldController(id, floorSize);
     }
 
