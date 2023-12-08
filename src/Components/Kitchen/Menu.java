@@ -8,7 +8,7 @@ public class Menu {
     String[] names = {"Eggs", "Pancakes", "Waffles", "Turkey Sandwich", "Ham Sandwich", "Bacon Sandwich", "Salmon", "Tuna", "Cat Fish",
                     "Fettuccine Alfredo", "Carbonara", "Spaghetti", "Pepperoni Pizza", "Cheese Pizza", "Spinach Pizza", "Hamburger", "Hash-burger", "Quarter Pounder",
                     "Milk & Water", "Coffee", "Green Tea", "Vanilla Pecan Ice Cream", "Pecan Pie", "Pecan Tres Leches"};
-    ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
+    public ArrayList<MenuItem> menu = new ArrayList<MenuItem>();
 
     public Menu() {
         for (int i = 0; i < names.length; i++) {

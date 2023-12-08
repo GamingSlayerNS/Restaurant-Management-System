@@ -14,10 +14,10 @@ public class MakePaymentCommand implements Command {
     }
 
     public void makePayment() {
-        System.out.print("Choose Table: ");
+        System.out.print("Swipe Creditcard: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.makePayment(0, 0);
+        handheldController.makePayment(Integer.parseInt(text));
     };
 
     public void execute() {makePayment();};

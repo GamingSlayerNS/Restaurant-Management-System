@@ -2,6 +2,7 @@ package View.MainMenu.Commands;
 
 import java.util.Scanner;
 
+import Components.Kitchen.MenuItem;
 import Controllers.HandheldController;
 import View.MainMenu.Command;
 
@@ -15,9 +16,19 @@ public class AddItemCommand implements Command {
 
     public void addItem() {
         System.out.print("Choose Item: ");
-        String text = scn.next();
+        String text = scn.nextLine();
         System.out.println("");
-        handheldController.addItem(null);
+        MenuItem temp = null;
+        for (MenuItem item : handheldController.menu.menu) {
+            if (item.name.equals(text)) {
+                temp = item;
+            }
+        }
+        if (temp != null) {
+            handheldController.addItem(temp);
+        } else {
+            System.out.println("Invalid Item");
+        }
     };
 
     public void execute() {addItem();};

@@ -6,7 +6,6 @@ import Controllers.HandheldController;
 import View.MainMenu.Command;
 
 public class ConfirmCheckoutCommand implements Command {
-    Scanner scn = new Scanner(System.in);
     HandheldController handheldController;
 
     public ConfirmCheckoutCommand(HandheldController handheldController) {
@@ -14,9 +13,7 @@ public class ConfirmCheckoutCommand implements Command {
     }
 
     public void confirmCheckout() {
-        System.out.print("Choose Table: ");
-        String text = scn.next();
-        System.out.println("");
+        System.out.println("Order Receipt: \n");
         handheldController.confirmCheckout();
     };
 

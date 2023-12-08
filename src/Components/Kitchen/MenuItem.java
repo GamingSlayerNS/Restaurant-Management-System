@@ -1,9 +1,9 @@
 package Components.Kitchen;
 
 public class MenuItem {
-    String name;
-    double price;
-    String category;
+    public String name;
+    public double price;
+    public String category;
 
     public MenuItem(String name, double price, String category) {
         this.name = name;

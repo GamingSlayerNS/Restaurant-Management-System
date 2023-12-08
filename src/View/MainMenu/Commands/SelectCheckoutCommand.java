@@ -6,7 +6,6 @@ import Controllers.HandheldController;
 import View.MainMenu.Command;
 
 public class SelectCheckoutCommand implements Command {
-    Scanner scn = new Scanner(System.in);
     HandheldController handheldController;
 
     public SelectCheckoutCommand(HandheldController handheldController) {
@@ -14,9 +13,7 @@ public class SelectCheckoutCommand implements Command {
     }
 
     public void selectCheckout() {
-        System.out.print("Choose Table: ");
-        String text = scn.next();
-        System.out.println("");
+        System.out.println("Order Summary: \n");
         handheldController.selectCheckout();
     };
 
