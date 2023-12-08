@@ -17,7 +17,7 @@ public class SelectCheckoutCommand implements Command {
         System.out.print("Choose Table: ");
         String text = scn.next();
         System.out.println("");
-        handheldController.selecCheckout();
+        handheldController.selectCheckout();
     };
 
     public void execute() {selectCheckout();};

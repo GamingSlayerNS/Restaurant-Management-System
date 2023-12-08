@@ -9,21 +9,28 @@ public class HandheldDevice {
     char QUIT = 'q';
     String QUIT_TEXT = "Shutdown...";
     String TITLE_TEXT = "Handheld Device";
+    String EXIT_TEXT = "Shutting Down... Goodbye";
     Scanner scn = new Scanner(System.in);
     Vector<DeviceAction> actionList;
     String actionText;
+    String quitText;
+    String exitMsg;
 
     public HandheldController handheldController;
 
     public HandheldDevice(int id, int floorSize) {
         this.actionList = new Vector<DeviceAction>(0);
         this.actionText = TITLE_TEXT + " " + id + ": ";
+        this.quitText = QUIT_TEXT;
+        this.exitMsg = EXIT_TEXT;
         this.handheldController = new HandheldController(id, floorSize);
     }
 
-    public HandheldDevice(String actionText, int id, int floorSize) {
+    public HandheldDevice(String title, String quitText, String exitMsg, int id, int floorSize) {
         this.actionList = new Vector<DeviceAction>(0);
-        this.actionText = actionText;
+        this.actionText = title;
+        this.quitText = quitText;
+        this.exitMsg = exitMsg;
         this.handheldController = new HandheldController(id, floorSize);
     }
 
@@ -37,7 +44,7 @@ public class HandheldDevice {
             System.out.print(action.getSelectChar() + ": ");
             System.out.println(action.getDescription());
         }
-        System.out.println(QUIT + ": " + QUIT_TEXT);
+        System.out.println(QUIT + ": " + quitText);
     }
 
     private char getSelection() {
@@ -79,6 +86,6 @@ public class HandheldDevice {
             }
         } while (selectChar != QUIT);
 
-        System.out.println("Shutting Down... Goodbye");
+        System.out.println(exitMsg);
     }
 }
